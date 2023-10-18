@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+import Home from "./pages/home/Home";
+import Order from "./pages/order/Order";
+import Cart from "./pages/cart/Cart";
+import Dashboard from "./pages/admin/dashboard/Dashboard";
+import NoPage from "./pages/nopage/NoPage";
+
+import Login from "./pages/registration/Login";
+import Signup from "./pages/registration/Signup";
+import ProductInfo from "./pages/productInfo/ProductInfo";
+import AddProduct from "./pages/admin/page/AddProduct";
+import UpdateProduct from "./pages/admin/page/UpdateProduct";
+import Allproducts from "./pages/allproducts/Allproducts";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/allproducts" element={<Allproducts />} />
+        <Route path="/order" element={<Order />} />
+        <Route path="/cart" element={<Cart />} />
+
+        <Route path="/productinfo/:id" element={<ProductInfo />} />
+        <Route path="/addproduct" element={<AddProduct />} />
+        <Route path="/updateproduct" element={<UpdateProduct />} />
+        <Route path="/*" element={<NoPage />} />
+
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+      <ToastContainer />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
