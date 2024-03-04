@@ -1,12 +1,12 @@
 import mongoose, { Document } from "mongoose";
 import { myCache } from "../app.js";
-import { Product } from "../models/product.js";
+import { Product } from "../models/product.models.js";
 import { InvalidateCacheProps, OrderItemType } from "../types/types.js";
 
 export const connectDB = (uri: string) => {
   mongoose
     .connect(uri, {
-      dbName: "Ecom_24",
+      dbName: "gaurav-ecommerce",
     })
     .then((c) => console.log(`DB Connected to ${c.connection.host}`))
     .catch((e) => console.log(e));
