@@ -1,4 +1,4 @@
-// import { Button } from "@/components/ui/button";
+// import { Button } from "./components/ui/button";
 //  <Button>Click me</Button>
 import { onAuthStateChanged } from "firebase/auth";
 import { Suspense, lazy, useEffect } from "react";
@@ -62,6 +62,7 @@ const App = () => {
     <Loader />
   ) : (
     <Router>
+     
       {/* Header */}
       <Header user={user} />
       <Suspense fallback={<Loader />}>
