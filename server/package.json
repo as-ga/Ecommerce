@@ -1,0 +1,17 @@
+{
+  "name": "gaurav-ecommerce-server",
+  "version": "1.0.0",
+  "description": "ecommerce app is created by Ashutosh Gaurav",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecom",
+    "ashutosh",
+    "gaurav"
+  ],
+  "author": "Ashutosh Gaurav",
+  "license": "ISC"
+}
