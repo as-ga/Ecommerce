@@ -1,7 +1,3 @@
-// import { Button } from "./components/ui/button";
-//  <Button>Click me</Button>
-import { Hello } from "./Hello";
-
 import { onAuthStateChanged } from "firebase/auth";
 import { Suspense, lazy, useEffect } from "react";
 import { Toaster } from "react-hot-toast";
@@ -64,13 +60,11 @@ const App = () => {
     <Loader />
   ) : (
     <Router>
-     
       {/* Header */}
       <Header user={user} />
       <Suspense fallback={<Loader />}>
         <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
-          <Route path="/" element={<Hello />} />
+          <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
           <Route path="/cart" element={<Cart />} />
           {/* Not logged In Route */}
