@@ -1,7 +1,7 @@
 <div align="center">
   <br />
     <a href="https://github.com/as-ga/Ecommerce">
-      <img src="./screenshort/main.jpg" alt="Project Banner">
+      <img src="./screenshort/home.jpg" alt="Project Banner">
     </a>
   <br />
 
@@ -44,6 +44,14 @@
 👉 **Authentication and Authorization**: Secure user access with registration, login, and route protection.
 
 👉 **Responsive UI/UX**: A seamless experience across devices with a user-friendly interface
+
+👉 **Shopping Cart**: Easily add and remove items, and proceed to checkout effortlessly.
+
+👉 **Order Management**: Keep track of your orders and view order history.
+
+👉 **Product Catalog**:  Browse a diverse range of products with detailed information and images.
+
+👉 **Admin Dashboard**: Streamline your business operations with a comprehensive admin dashboard for managing products, orders, and users. 
 
 and many more, including code architecture and reusability
 
