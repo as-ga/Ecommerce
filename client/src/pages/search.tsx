@@ -109,7 +109,8 @@ const Search = () => {
         {productLoading ? (
           <Skeleton length={10} />
         ) : (
-          <div className="search-product-list">
+   
+   <div className="search-product-list">
             {searchedData?.products.map((i) => (
               <ProductCard
                 key={i._id}
