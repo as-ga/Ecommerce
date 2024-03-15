@@ -31,6 +31,8 @@ const Header = ({ user }: PropsType) => {
 
   return (
     <nav className="header">
+      <div className="logo"><Link to={"/"}> Ashutosh Gaurav </Link> </div>
+      <div className="nav">
       <Link onClick={() => setIsOpen(false)} to={"/"}>
         HOME
       </Link>
@@ -68,6 +70,7 @@ const Header = ({ user }: PropsType) => {
           <FaSignInAlt />
         </Link>
       )}
+</div>
     </nav>
   );
 };
