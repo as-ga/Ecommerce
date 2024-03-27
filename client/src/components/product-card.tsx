@@ -1,4 +1,3 @@
-import { server } from "../redux/store";
 import { CartItem } from "../types/types";
 import { Button } from "./ui/button.tsx";
 import { Link } from "react-router-dom";
@@ -21,7 +20,6 @@ const ProductCard = ({
   handler,
 }: ProductsProps) => {
   return (
-    
     <div
       className="rounded-lg border bg-card text-card-foreground shadow-sm"
       key={name}
@@ -36,7 +34,6 @@ const ProductCard = ({
         />
 
         <h3 className="text-sm font-medium leading-none mt-4">{name}</h3>
-        {/* <p className="text-sm text-gray-500">{name}</p> */}
         <h4 className="text-sm font-medium mt-2">₹{price}</h4>
       </div>
       <div className="border-t p-4 flex items-center justify-between">
