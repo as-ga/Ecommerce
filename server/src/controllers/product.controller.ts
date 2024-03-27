@@ -124,12 +124,14 @@ export const updateProduct = TryCatch(async (req, res, next) => {
   const product = await Product.findById(id);
 
   if (!product) return next(new ErrorHandler("Product Not Found", 404));
-
+  let avatar;
   if (photo) {
     rm(product.photo!, () => {
       console.log("Old Photo Deleted");
     });
-    product.photo = photo.path;
+    avatar = await uploadOnCloundinary(photo.path);
+    if (!avatar) return next(new ErrorHandler("file upload error", 500));
+    product.photo = avatar?.url;
   }
 
   if (name) product.name = name;
