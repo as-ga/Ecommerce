@@ -10,6 +10,7 @@ import ErrorHandler from "../utils/utility-class.js";
 import { rm } from "fs";
 import { myCache } from "../app.js";
 import { invalidateCache } from "../utils/features.js";
+import { uploadOnCloundinary } from "../utils/cloudinary.js";
 // import { faker } from "@faker-js/faker";
 
 // Revalidate on New,Update,Delete Product & on New Order
@@ -84,6 +85,7 @@ export const getSingleProduct = TryCatch(async (req, res, next) => {
 export const newProduct = TryCatch(
   async (req: Request<{}, {}, NewProductRequestBody>, res, next) => {
     const { name, price, stock, category } = req.body;
+    // const photo = req.file;
     const photo = req.file;
 
     if (!photo) return next(new ErrorHandler("Please add Photo", 400));
@@ -92,16 +94,18 @@ export const newProduct = TryCatch(
       rm(photo.path, () => {
         console.log("Deleted");
       });
-
       return next(new ErrorHandler("Please enter All Fields", 400));
     }
+
+    const avatar = await uploadOnCloundinary(photo?.path);
+    if (!avatar) return next(new ErrorHandler("file upload error", 500));
 
     await Product.create({
       name,
       price,
       stock,
       category: category.toLowerCase(),
-      photo: photo.path,
+      photo: avatar?.url,
     });
 
     invalidateCache({ product: true, admin: true });
