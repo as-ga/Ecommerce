@@ -28,7 +28,7 @@ const ProductCard = ({
     >
       <div className="p-4">
         <img
-          src={`${server}/${photo}`}
+          src={photo}
           alt={name}
           width="200"
           height="200"
